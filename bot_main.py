@@ -4,7 +4,7 @@ import shodan
 import asyncio
 
 bot = Bot(command_prefix="$")
-token = 'INSERT KEY HERE' #THIS SHOULD PROBABLY JUST READ FROM A CONFIG FILE
+token = 'INSERT KEY HERE' #THIS SHOULD PROBABLY JUST READ FROM A CONFIG F
 searchTerm = str()
 numResults = int()
 
@@ -14,7 +14,6 @@ def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print('------')
-
 
 @bot.async_event
 def on_message(message):
