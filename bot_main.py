@@ -2,9 +2,8 @@ from discord.ext.commands import Bot
 import subprocess as sp
 import shodan
 
-
 bot = Bot(command_prefix="$")
-token = <ENTER DISCORD API KEY>
+token = 'MjgzOTYxMjEwNjcwNDE1ODcz.C48rHQ.xNfyau3G7vbBGTdPN3JnO8nK8WY'
 searchTerm = str()
 numResults = int()
 
@@ -15,7 +14,6 @@ async def on_ready():
     print(bot.user.id)
     print('------')
 
-
 @bot.event
 async def on_message(message):
     if message.content.startswith(('why', 'Why')):
@@ -24,22 +22,17 @@ async def on_message(message):
         await bot.send_message(message.channel, content=":laughing:")
     await bot.process_commands(message)
 
-
 @bot.command()
 async def log():
     await bot.logout()
-
 
 @bot.command()
 async def r2d2():
     await bot.say("https://www.youtube.com/watch?v=Uj1ykZWtPYI")
 
-
 @bot.command()
 async def sayshit():
     await bot.say("Shit!")
-
-
     
 @bot.command()
 async def clear():
@@ -51,10 +44,9 @@ async def clear():
     await bot.say("CLEARING")
     await bot.upload("images/project.jpg")
 
-
 @bot.command()
 async def shodansearch(searchTerm):
-    SHODAN_API_KEY = <ENTER SHODAN KEY>
+    SHODAN_API_KEY = 'EVpPLuV9Sa46y1niuQxNU63niDmNB8ne'
     api = shodan.Shodan(SHODAN_API_KEY)
     results = api.search(searchTerm)
     i = 0
