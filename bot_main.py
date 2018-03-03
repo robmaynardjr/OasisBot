@@ -4,7 +4,7 @@ import shodan
 import asyncio
 
 bot = Bot(command_prefix="$")
-token = '' #THIS SHOULD PROBABLY JUST READ FROM A CONFIG F
+token = 'MjgzOTYxMjEwNjcwNDE1ODcz.C48rHQ.xNfyau3G7vbBGTdPN3JnO8nK8WY' #THIS SHOULD PROBABLY JUST READ FROM A CONFIG FILE
 searchTerm = str()
 numResults = int()
 
@@ -17,9 +17,9 @@ def on_ready():
 
 @bot.async_event
 def on_message(message):
-    if message.content.upper().startswith(('WHY ')):
+    if 'WHY' in message.content.upper():
         yield from bot.send_file(message.channel, "images/bytyan.jpg")
-    elif message.content.upper().startswith(('LOL ', 'HAHA ','ROFL ')):
+    elif 'LOL' in message.content.upper():
         yield from bot.send_message(message.channel, content=":laughing:")
     elif 'CHEF' in message.content.upper():
         yield from bot.send_file(message.channel, "images/chef.jpg")
@@ -57,7 +57,7 @@ def clear():
 @bot.command(name='shodansearch')
 @asyncio.coroutine
 def shodansearch(searchTerm):
-    SHODAN_API_KEY = '' #THIS SHOULD PROBABLY JUST READ FROM A CONFIG FILE
+    SHODAN_API_KEY = 'EVpPLuV9Sa46y1niuQxNU63niDmNB8ne' #THIS SHOULD PROBABLY JUST READ FROM A CONFIG FILE
     api = shodan.Shodan(SHODAN_API_KEY)
     results = api.search(searchTerm)
     i = 0
