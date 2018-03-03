@@ -1,7 +1,7 @@
 from discord.ext.commands import Bot
 import subprocess as sp
 import shodan
-import asyncio
+import asyncio #probably unnecessary
 
 bot = Bot(command_prefix="$")
 token = 'INSERT KEY HERE' #THIS SHOULD PROBABLY JUST READ FROM A CONFIG FILE
