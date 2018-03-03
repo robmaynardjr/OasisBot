@@ -4,7 +4,7 @@ import shodan
 import asyncio
 
 bot = Bot(command_prefix="$")
-token = 'INSERT KEY HERE' #THIS SHOULD PROBABLY JUST READ FROM A CONFIG F
+token = '' #THIS SHOULD PROBABLY JUST READ FROM A CONFIG F
 searchTerm = str()
 numResults = int()
 
@@ -26,12 +26,12 @@ def on_message(message):
     yield from bot.process_commands(message)
 
 
-@bot.command
+@bot.command(name='log')
 @asyncio.coroutine
 def log():
     yield from bot.logout()
 
-@bot.command
+@bot.command(name='r2d2')
 @asyncio.coroutine
 def r2d2():
     yield from bot.say("https://www.youtube.com/watch?v=Uj1ykZWtPYI")
@@ -42,7 +42,7 @@ def r2d2():
 def sayshit():
     yield from bot.say("Shit!")
 
-@bot.command
+@bot.command(name='clear')
 @asyncio.coroutine
 def clear():
     yield from bot.upload("images/project.jpg")
@@ -54,10 +54,10 @@ def clear():
     yield from bot.upload("images/project.jpg")
 
 
-@bot.command
+@bot.command(name='shodansearch')
 @asyncio.coroutine
 def shodansearch(searchTerm):
-    SHODAN_API_KEY = 'INSERT KEY HERE' #THIS SHOULD PROBABLY JUST READ FROM A CONFIG FILE
+    SHODAN_API_KEY = '' #THIS SHOULD PROBABLY JUST READ FROM A CONFIG FILE
     api = shodan.Shodan(SHODAN_API_KEY)
     results = api.search(searchTerm)
     i = 0
