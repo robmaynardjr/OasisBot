@@ -3,7 +3,7 @@ import subprocess as sp
 import shodan
 
 bot = Bot(command_prefix="$")
-token = 'MjgzOTYxMjEwNjcwNDE1ODcz.C48rHQ.xNfyau3G7vbBGTdPN3JnO8nK8WY'
+token = ''
 searchTerm = str()
 numResults = int()
 
@@ -46,7 +46,7 @@ async def clear():
 
 @bot.command()
 async def shodansearch(searchTerm):
-    SHODAN_API_KEY = 'EVpPLuV9Sa46y1niuQxNU63niDmNB8ne'
+    SHODAN_API_KEY = ''
     api = shodan.Shodan(SHODAN_API_KEY)
     results = api.search(searchTerm)
     i = 0
