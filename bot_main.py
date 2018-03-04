@@ -1,10 +1,16 @@
 from discord.ext.commands import Bot
+from configparser import SafeConfigParser
+import codecs
 import subprocess as sp
 import shodan
 import asyncio
 
+parser = SafeConfigParser()
+with codecs.open('./config.cfg', 'r', encoding='utf-8') as conf:
+    parser.readfp(conf)
+    
 bot = Bot(command_prefix="$")
-token = '' #THIS SHOULD PROBABLY JUST READ FROM A CONFIG FILE
+token = parser.get('AUTH', 'discord')
 searchTerm = str()
 numResults = int()
 
@@ -57,7 +63,7 @@ def clear():
 @bot.command(name='shodansearch')
 @asyncio.coroutine
 def shodansearch(searchTerm):
-    SHODAN_API_KEY = '' #THIS SHOULD PROBABLY JUST READ FROM A CONFIG FILE
+    SHODAN_API_KEY = parser.get('AUTH', 'shodan')
     api = shodan.Shodan(SHODAN_API_KEY)
     results = api.search(searchTerm)
     i = 0
