@@ -77,5 +77,5 @@ def shodansearch(searchTerm):
         yield from bot.say("OS: %s" % osData)
         yield from bot.say(("Open Ports: %s" % str(hostinfo['ports'])))
         yield from bot.say("-------------\n")
-
+        
 bot.run(token)
