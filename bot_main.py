@@ -4,7 +4,7 @@ import shodan
 import asyncio
 
 bot = Bot(command_prefix="$")
-token = '' #THIS SHOULD PROBABLY JUST READ FROM A CONFIG FILE
+token = 'MjgzOTYxMjEwNjcwNDE1ODcz.C48rHQ.xNfyau3G7vbBGTdPN3JnO8nK8WY' #THIS SHOULD PROBABLY JUST READ FROM A CONFIG FILE
 searchTerm = str()
 numResults = int()
 
@@ -57,7 +57,7 @@ def clear():
 @bot.command(name='shodansearch')
 @asyncio.coroutine
 def shodansearch(searchTerm):
-    SHODAN_API_KEY = '' #THIS SHOULD PROBABLY JUST READ FROM A CONFIG FILE
+    SHODAN_API_KEY = 'EVpPLuV9Sa46y1niuQxNU63niDmNB8ne' #THIS SHOULD PROBABLY JUST READ FROM A CONFIG FILE
     api = shodan.Shodan(SHODAN_API_KEY)
     results = api.search(searchTerm)
     i = 0
@@ -77,16 +77,5 @@ def shodansearch(searchTerm):
         yield from bot.say("OS: %s" % osData)
         yield from bot.say(("Open Ports: %s" % str(hostinfo['ports'])))
         yield from bot.say("-------------\n")
-
-@bot.command(name='glitch')
-@asyncio.coroutine
-def glitch():
-    yield from bot.say("J̸̨̨̧̡̛̠̗̫̻̦̺̬̬̯͕͍̮̰͚͖͔̹͍̈́͌̋̑̈́̈͒̐̇̅̋͌̈́̽̀̾̑̀̋̎̒̋̒̓̇̓̔̀̌̃̐́͘̚͝͝ͅͅÛ̴̡̡̨̨̫̤̞̝̫̠̯͎͎͚͈̼̥̹̰̯̱̫̬̩̘̞̖̑̂̇̑̎͊͊̅̏̋̾̚͜͝S̶̡̧̢̧̥̪͈͍̠̖͉͍̰̦̹̠̈́̋̈́̂̄͛̃̊͗̃̾̈́͐̈̇̽͠͝ͅT̵̡̡̨̫͇̫̝̖̞̮̜͇̤̖͈̱͙̲̥͉̩͎͎̥͈̦̯̦̠̳̩̉̌̔̈́̎͆̐̈́̌̀͗̀̑̉̓̽̈́̐́̇̌̓̉͋̽̾̄̃͒́̽͊͒͘̕͠ͅ ̸̢̧̜̟̘͎͙̺͉̞̘̳͖̹͈͎͍̤͇̖̮̭̝̝̋̀̅́͆̓̉͛̐̂̅̏̋̈́̏̓̓Ṃ̷̢̢̛̛͚̣̼̤͖̹̻̼̞̬͈̹̝̼͕̲͇̦̦͎̘̼̬̙͈̦͈͈͖̳͔̳̍̑́͋̔͐͋̈͆͂̈́̏̉͋͗̎͐̋̃̓̌̍͑̒́͊̂͘͘͘͘͜͝O̵̧̢̪̯̗̞̝͈̲͕̝̮͎̙̥͎͆͛̊̈́́͑̓̉͗̆͝͝N̴̨̧̢̛̛̛̲̮͓͎̝̦̺̫͇͓̠̤̣͈̟͖̼̗͍̗̼̖͎̗̬̞̼̤̞̜̜̈́̏̓̈́̅̈́̇̏̍̉͒̓͌͆̾̐͊̔̈́̌̐̍́̾͆̆̓̀̋̈́͌͘͘̕ͅĮ̵͔̖̤̱͇̟̯̰̦̳̳̙̟̗͌̈͝ͅĶ̴̨̰̘̭̺͓̭̤͉̣̰̟͚̝͉̟͐͆̆̅̾͝͝Ă̸̡̞͕͔͖͉̗̜̖͇̗̫͋̓͜͜")
-
-
-
-
-    yield from bot.send_file("images/scare.png")
-
-
+        
 bot.run(token)
