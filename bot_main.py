@@ -1,10 +1,16 @@
 from discord.ext.commands import Bot
+from configparser import SafeConfigParser
+import codecs
 import subprocess as sp
 import shodan
 import asyncio #probably unnecessary
 
+parser = SafeConfigParser()
+with codecs.open('./config.cfg', 'r', encoding='utf-8') as conf:
+    parser.readfp(conf)
+    
 bot = Bot(command_prefix="$")
-token = 'INSERT KEY HERE' #THIS SHOULD PROBABLY JUST READ FROM A CONFIG F
+token = parser.get('AUTH', 'discord')
 searchTerm = str()
 numResults = int()
 
@@ -17,21 +23,21 @@ def on_ready():
 
 @bot.async_event
 def on_message(message):
-    if message.content.upper().startswith(('WHY ')):
+    if 'WHY' in message.content.upper():
         yield from bot.send_file(message.channel, "images/bytyan.jpg")
-    elif message.content.upper().startswith(('LOL ', 'HAHA ','ROFL ')):
+    elif 'LOL' in message.content.upper():
         yield from bot.send_message(message.channel, content=":laughing:")
     elif 'CHEF' in message.content.upper():
         yield from bot.send_file(message.channel, "images/chef.jpg")
     yield from bot.process_commands(message)
 
 
-@bot.command
+@bot.command(name='log')
 @asyncio.coroutine
 def log():
     yield from bot.logout()
 
-@bot.command
+@bot.command(name='r2d2')
 @asyncio.coroutine
 def r2d2():
     yield from bot.say("https://www.youtube.com/watch?v=Uj1ykZWtPYI")
@@ -42,7 +48,7 @@ def r2d2():
 def sayshit():
     yield from bot.say("Shit!")
 
-@bot.command
+@bot.command(name='clear')
 @asyncio.coroutine
 def clear():
     yield from bot.upload("images/project.jpg")
@@ -54,10 +60,10 @@ def clear():
     yield from bot.upload("images/project.jpg")
 
 
-@bot.command
+@bot.command(name='shodansearch')
 @asyncio.coroutine
 def shodansearch(searchTerm):
-    SHODAN_API_KEY = 'INSERT KEY HERE' #THIS SHOULD PROBABLY JUST READ FROM A CONFIG FILE
+    SHODAN_API_KEY = parser.get('AUTH', 'shodan')
     api = shodan.Shodan(SHODAN_API_KEY)
     results = api.search(searchTerm)
     i = 0
@@ -71,11 +77,6 @@ def shodansearch(searchTerm):
         hostnames = result['hostnames']
         hostinfo = api.host(result['ip_str'])
 
-        yield from bot.say("Result %s of 5" % i)
-        yield from bot.say("IPinfo: %s" % ipInfo)
-        yield from bot.say("Hostname: %s" % hostnames)
-        yield from bot.say("OS: %s" % osData)
-        yield from bot.say(("Open Ports: %s" % str(hostinfo['ports'])))
-        yield from bot.say("-------------\n")
+        yield from bot.say("Result %s of 5\nIPinfo: %s\nHostname: %s\nOS: %s\nOpen Ports: %s\n-------------\n" % (i, ipInfo, hostnames, osData, (str(hostinfo['ports']))))        
 
 bot.run(token)
