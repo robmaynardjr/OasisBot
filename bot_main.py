@@ -77,11 +77,6 @@ def shodansearch(searchTerm):
         hostnames = result['hostnames']
         hostinfo = api.host(result['ip_str'])
 
-        yield from bot.say("Result %s of 5\nIPinfo: %s\nHostname: %s\nOS: %s\nOpen Ports: %s\n-------------\n" % (i, ipInfo, hostnames, osData, (str(hostinfo['ports']))))
-        #yield from bot.say("IPinfo: %s" % ipInfo)
-        #yield from bot.say("Hostname: %s" % hostnames)
-        #yield from bot.say("OS: %s" % osData)
-        #yield from bot.say(("Open Ports: %s" % str(hostinfo['ports'])))
-        #yield from bot.say("-------------\n")
+        yield from bot.say("Result %s of 5\nIPinfo: %s\nHostname: %s\nOS: %s\nOpen Ports: %s\n-------------\n" % (i, ipInfo, hostnames, osData, (str(hostinfo['ports']))))        
 
 bot.run(token)
