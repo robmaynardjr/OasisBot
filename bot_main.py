@@ -31,7 +31,6 @@ def on_message(message):
         yield from bot.send_file(message.channel, "images/chef.jpg")
     yield from bot.process_commands(message)
 
-
 @bot.command(name='log')
 @asyncio.coroutine
 def log():
@@ -41,7 +40,6 @@ def log():
 @asyncio.coroutine
 def r2d2():
     yield from bot.say("https://www.youtube.com/watch?v=Uj1ykZWtPYI")
-
 
 @bot.command(name = 'sayshit')
 @asyncio.coroutine
