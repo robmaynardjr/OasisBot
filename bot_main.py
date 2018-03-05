@@ -45,7 +45,6 @@ def makeMeme(template, text0, text1):
     #genMeme(template_id, username, password, text0, text1, font="impact"):
 
 
-
 @bot.command(name='log')
 @asyncio.coroutine
 def log():
@@ -55,7 +54,6 @@ def log():
 @asyncio.coroutine
 def r2d2():
     yield from bot.say("https://www.youtube.com/watch?v=Uj1ykZWtPYI")
-
 
 @bot.command(name = 'sayshit')
 @asyncio.coroutine
