@@ -1,9 +1,28 @@
 pipeline {
-    agent { docker { image 'frolvlad/alpine-python3' } }
+    agent any
+    environment {
+        registry = "https://279773871986.dkr.ecr.us-east-2.amazonaws.com/oasisbot"
+        registryCredential = 'ecr:us-east-2:ecr'
+        dockerImage = ""
+    }
     stages {
-        stage('build') {
+        stage('Pull from Repo') {
             steps {
-                sh 'python3 bot_main.py'
+                git https://github.com/robmaynardjr/OasisBot
+            }
+        }
+        stage('Build Container') {
+            steps {
+                script {
+                    dockerImage = docker.build('279773871986.dkr.ecr.us-east-2.amazonaws.com/oasisbot:latest')
+                }
+            }
+        }
+        stage('Stage Container Image') {
+            steps {
+                docker.withRegistry(registry, registryCredential) {
+                    dockerImage.push()
+                }
             }
         }
     }
