@@ -1,4 +1,7 @@
 pipeline {
+
+    agent any
+
     environment {
         registry = "https://279773871986.dkr.ecr.us-east-2.amazonaws.com/oasisbot"
         registryCredential = 'ecr:us-east-2:ecr'
