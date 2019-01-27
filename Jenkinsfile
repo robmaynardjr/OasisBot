@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Pull from Repo') {
             steps {
-                git https://github.com/robmaynardjr/OasisBot
+                checkout scm
             }
         }
         stage('Build Container') {
