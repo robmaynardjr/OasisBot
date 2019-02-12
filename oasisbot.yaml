@@ -16,4 +16,6 @@ spec:
       containers:
       - name: oasisbot
         image: 279773871986.dkr.ecr.us-east-2.amazonaws.com/oasisbot:latest
+      imagePullSecrets:
+      - name: registry-creds-ecr
         
