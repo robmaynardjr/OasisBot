@@ -1,4 +1,4 @@
-FROM steffenkgarage/alpine-python3-arm
+FROM steffenkgarage/alpine-python3-arm:2018-09-03
 
 WORKDIR /OasisBot
 
