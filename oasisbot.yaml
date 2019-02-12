@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: oasisbot
+  labels:
+    app: oasisbot
+spec:  
+  selector:
+    matchLabels:
+      app: oasisbot
+  template:
+    metadata:
+      labels:
+        app: oasisbot
+    spec:
+      containers:
+      - name: oasisbot
+        image: 279773871986.dkr.ecr.us-east-2.amazonaws.com/oasisbot:latest
+        
