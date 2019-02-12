@@ -1,4 +1,4 @@
-FROM frolvlad/alpine-python3
+FROM mielune/alpine-python3-arm
 
 WORKDIR /OasisBot
 
