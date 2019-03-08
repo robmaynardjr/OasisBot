@@ -23,15 +23,15 @@ def on_ready():
     print(bot.user.id)
     print('------')
 
-@bot.async_event
-def on_message(message):
-    if 'WHY' in message.content.upper():
-        yield from bot.send_file(message.channel, "images/bytyan.jpg")
-    elif 'LOL' in message.content.upper():
-        yield from bot.send_message(message.channel, content=":laughing:")
-    elif 'CHEF' in message.content.upper():
-        yield from bot.send_file(message.channel, "images/chef.jpg")
-    yield from bot.process_commands(message)
+# @bot.async_event
+# def on_message(message):
+#     if 'WHY' in message.content.upper():
+#         yield from bot.send_file(message.channel, "images/bytyan.jpg")
+#     elif 'LOL' in message.content.upper():
+#         yield from bot.send_message(message.channel, content=":laughing:")
+#     elif 'CHEF' in message.content.upper():
+#         yield from bot.send_file(message.channel, "images/chef.jpg")
+#     yield from bot.process_commands(message)
 
 
 @bot.command(name='meme')
@@ -50,15 +50,6 @@ def makeMeme(template, text0, text1):
 def log():
     yield from bot.logout()
 
-@bot.command(name='r2d2')
-@asyncio.coroutine
-def r2d2():
-    yield from bot.say("https://www.youtube.com/watch?v=Uj1ykZWtPYI")
-
-@bot.command(name = 'sayshit')
-@asyncio.coroutine
-def sayshit():
-    yield from bot.say("Shit!")
 
 @bot.command(name='clear')
 @asyncio.coroutine
