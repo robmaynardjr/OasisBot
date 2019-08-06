@@ -17,7 +17,8 @@ pipeline {
         stage('Build Container') {
             steps {
                 script {
-                    dockerImage = docker.build('279773871986.dkr.ecr.us-east-2.amazonaws.com/oasisbot:latest')
+                    dockerImage = docker.build('279773871986.dkr.ecr.us-east-2.amazonaws.com/oasisbot:latest')am
+                    
                 }
             }
         }    
