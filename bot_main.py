@@ -2,15 +2,15 @@ import immunio.start
 import discord
 from discord.ext import commands
 from discord.ext.commands import Bot
-from configparser import SafeConfigParser
+from configparser import ConfigParser
 import codecs
 import subprocess as sp
 import shodan
 import flippy
 import asyncio #probably unnecessary
 
-parser = SafeConfigParser()
-f = flippy.Flippy()
+parser = ConfigParser()
+f = flippy.Flippy()t
 with codecs.open('./config.cfg', 'r', encoding='utf-8') as conf:
     parser.readfp(conf)
 
