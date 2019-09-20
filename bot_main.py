@@ -37,13 +37,14 @@ async def makeMeme(oasisbot, template, text0, text1):
 
 @oasisbot.command()
 async def clear(oasisbot):
-    await oasisbot.send(file=discord.File('images/project.jpg'))
-    await oasisbot.send("CLEARING")
-    await oasisbot.send(file=discord.File('images/project.jpg'))
-    await oasisbot.send("CLEARING")
-    await oasisbot.send(file=discord.File('images/project.jpg'))
-    await oasisbot.send("CLEARING")
-    await oasisbot.send(file=discord.File('images/project.jpg'))
+    with discord.File('images/project.jpg') as f:
+        await oasisbot.send(file=f)
+        await oasisbot.send("CLEARING")
+        await oasisbot.send(file=f)
+        await oasisbot.send("CLEARING")
+        await oasisbot.send(file=f)
+        await oasisbot.send("CLEARING")
+        await oasisbot.send(file=f)
 
 
 @oasisbot.command()
