@@ -46,6 +46,7 @@ async def clear(oasisbot):
         await oasisbot.send("CLEARING")
         await oasisbot.send(file=f)
 
+# Save for later functionality.
 
 @oasisbot.command()
 async def shodansearch(oasisbot, searchTerm):
