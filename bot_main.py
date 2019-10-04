@@ -43,8 +43,6 @@ async def clear(oasisbot):
         await oasisbot.send(file=f)
         await oasisbot.send("CLEARING")
         await oasisbot.send(file=f)
-        await oasisbot.send("CLEARING")
-        await oasisbot.send(file=f)
 
 # Save for later functionality.
 
