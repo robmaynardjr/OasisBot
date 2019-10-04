@@ -1,8 +1,8 @@
 pipeline {
   environment {
     registry = "registry.hub.docker.com"
-    registryCredential = 'dockerhub'
-    imgName = 'robmaynard/oasisbot:latest'
+    registryCredential = 'dockerhub2'
+    imgName = 'robmaynardjr/oasisbot:latest'
     gitRepo = "https://github.com/robmaynardjr/OasisBot.git"
     smartCheckHost = "10.0.10.100"
   }
@@ -27,7 +27,7 @@ pipeline {
                     script {
                         withCredentials([
                             usernamePassword([
-                                credentialsId: 'dockerhub', 
+                                credentialsId: 'dockerhub2', 
                                 passwordVariable: 'PASS', 
                                 usernameVariable: 'USER',
                                 ])
@@ -50,7 +50,7 @@ pipeline {
                     script {
                         withCredentials([
                             usernamePassword([
-                                credentialsId: "dockerhub",
+                                credentialsId: "dockerhub2",
                                 usernameVariable: "USER",
                                 passwordVariable: "PASSWORD",
                             ]),
@@ -63,7 +63,7 @@ pipeline {
                             sh "docker login -u '${USER}' -p '${PASSWORD}'"
                             def imgPAuth = " {\"username\":\"${USER}\",\"password\":\"${PASSWORD}\"} "
                             def findings =  " {\"malware\":0,\"vulnerabilities\":{\"defcon1\":0,\"critical\":20,\"high\":200},\"contents\":{\"defcon1\":0,\"critical\":0,\"high\":0},\"checklists\":{\"defcon1\":0,\"critical\":0,\"high\":0} } "
-                            sh "docker run deepsecurity/smartcheck-scan-action --image-name registry.hub.docker.com/robmaynard/sc-test:latest --smartcheck-host=10.0.10.100 --smartcheck-user='$SCUSER' --smartcheck-password='${SCPASSWORD}' --insecure-skip-tls-verify --findings-threshold='${findings}' --image-pull-auth='${imgPAuth}'"
+                            sh "docker run deepsecurity/smartcheck-scan-action --image-name registry.hub.docker.com/robmaynardjr/oasisbot:latest --smartcheck-host=10.0.10.100 --smartcheck-user='$SCUSER' --smartcheck-password='${SCPASSWORD}' --insecure-skip-tls-verify --findings-threshold='${findings}' --image-pull-auth='${imgPAuth}'"
                         }
                     }
                 }

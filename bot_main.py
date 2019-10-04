@@ -10,7 +10,7 @@ import flippy
 import asyncio #probably unnecessary
 
 parser = ConfigParser()
-f = flippy.Flippy()t
+f = flippy.Flippy()
 with codecs.open('./config.cfg', 'r', encoding='utf-8') as conf:
     parser.readfp(conf)
 
@@ -20,11 +20,12 @@ searchTerm = str()
 numResults = int()
 
 @oasisbot.event
-async def on_ready():
+async def on_ready(oasisbot):
     print('Logged in as')
     print(oasisbot.user.name)
     print(oasisbot.user.id)
     print('------')
+    await oasisbot.send("Oasibot Logged In")
 
 @oasisbot.command()
 async def makeMeme(oasisbot, template, text0, text1):
@@ -37,12 +38,12 @@ async def makeMeme(oasisbot, template, text0, text1):
 
 @oasisbot.command()
 async def clear(oasisbot):
-    with discord.File('images/project.jpg') as f:
-        await oasisbot.send(file=f)
+    with discord.File('images/project.jpg') as p:
+        await oasisbot.send(file=p)
         await oasisbot.send("CLEARING")
-        await oasisbot.send(file=f)
+        await oasisbot.send(file=p)
         await oasisbot.send("CLEARING")
-        await oasisbot.send(file=f)
+        await oasisbot.send(file=p)
 
 # Save for later functionality.
 
