@@ -12,7 +12,7 @@ import asyncio #probably unnecessary
 parser = ConfigParser()
 f = flippy.Flippy()
 with codecs.open('./config.cfg', 'r', encoding='utf-8-sig') as conf:
-    parser.readfp(open(conf))
+    parser.readfp(conf)
 
 oasisbot = Bot(command_prefix="$")
 token = parser.get('AUTH', 'discord')
