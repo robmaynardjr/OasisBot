@@ -75,6 +75,7 @@ pipeline {
                 container('jnlp') {
                     script {
                         sh "kubectl delete deployment oasisbot"
+                        sh "sleep 10"
                         sh "kubectl apply -f oasisbot.yaml"
                     }
                 }
