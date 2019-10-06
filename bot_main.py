@@ -13,7 +13,7 @@ parser = ConfigParser()
 f = flippy.Flippy()
 #with codecs.open('./config.cfg', 'r', encoding='utf-8') as conf:
 
-parser.read_file('./confing.cfg')
+parser.read_file('./config.cfg')
 
 oasisbot = Bot(command_prefix="$")
 token = parser.get('AUTH', 'discord')
