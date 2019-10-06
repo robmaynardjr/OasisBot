@@ -17,5 +17,5 @@ spec:
       - name: oasisbot
         image: robmaynardjr/oasisbot:latest
       imagePullSecrets:
-      - name: dockcred
+      - name: dockercred2
         
