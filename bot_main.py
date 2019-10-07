@@ -11,10 +11,8 @@ import asyncio #probably unnecessary
 
 parser = ConfigParser()
 f = flippy.Flippy()
-with codecs.open('./config.cfg', 'r', encoding='utf-8') as conf:
-    parser.readfp(conf)
-
-#parser.read_file('./config.cfg')
+with codecs.open('./config.cfg', 'r', encoding='utf-8') as conf: 
+    parser.read_file('./config.cfg')
 
 oasisbot = Bot(command_prefix="$")
 token = parser.get('AUTH', 'discord')
@@ -27,7 +25,6 @@ async def on_ready(oasisbot):
     print(oasisbot.user.name)
     print(oasisbot.user.id)
     print('------')
-    await oasisbot.send("Oasibot Logged In")
 
 @oasisbot.command()
 async def makeMeme(oasisbot, template, text0, text1):
@@ -47,7 +44,6 @@ async def clear(oasisbot):
         await oasisbot.send("CLEARING")
         await oasisbot.send(file=p)
 
-# Save for later functionality.
 
 @oasisbot.command()
 async def shodansearch(oasisbot, searchTerm):
