@@ -37,13 +37,13 @@ async def makeMeme(oasisbot, template, text0, text1):
 
 @oasisbot.command()
 async def clear(oasisbot):
-    yield from bot.upload("images/project.jpg")
-    yield from bot.say("CLEARING")
-    yield from bot.upload("images/project.jpg")
-    yield from bot.say("CLEARING")
-    yield from bot.upload("images/project.jpg")
-    yield from bot.say("CLEARING")
-    yield from bot.upload("images/project.jpg")
+    await bot.send("images/project.jpg")
+    await bot.send("CLEARING")
+    await bot.send("images/project.jpg")
+    await bot.send("CLEARING")
+    await bot.send("images/project.jpg")
+    await bot.send("CLEARING")
+    await bot.send("images/project.jpg")
 
 
 @oasisbot.command()
