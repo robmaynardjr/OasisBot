@@ -7,7 +7,7 @@ pipeline {
     smartCheckHost = "10.0.10.100"
   }
   
-    agent { label 'jenkins-jenkins-slave ' }
+    agent { label 'jenkins-jenkins-slave' }
 
     stages {
         stage("Building image") {
@@ -15,6 +15,7 @@ pipeline {
                 container('jnlp') {
                     script {
                         sh "curl -O https://s3.us-east-2.amazonaws.com/artifacts.trend-demolab.com/configs/config.cfg"
+                        sh "cat ./config.cfg"
                         dockerImage = docker.build(imgName)
                     }
                 }
