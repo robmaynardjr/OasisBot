@@ -11,9 +11,8 @@ import asyncio #probably unnecessary
 
 parser = ConfigParser()
 f = flippy.Flippy()
-#with codecs.open('./config.cfg', 'r', encoding='utf-8-sig') as conf: 
-
-parser.read_file('./config.cfg')
+with codecs.open('./config.cfg', 'r', encoding='utf-8') as conf: 
+    parser.read_file(conf)
 
 oasisbot = Bot(command_prefix="$")
 token = parser.get('AUTH', 'discord')
@@ -38,13 +37,13 @@ async def makeMeme(oasisbot, template, text0, text1):
 
 @oasisbot.command()
 async def clear(oasisbot):
-    await bot.send("images/project.jpg")
-    await bot.send("CLEARING")
-    await bot.send("images/project.jpg")
-    await bot.send("CLEARING")
-    await bot.send("images/project.jpg")
-    await bot.send("CLEARING")
-    await bot.send("images/project.jpg")
+    await oasisbot.send("images/project.jpg")
+    await oasisbot.send("CLEARING")
+    await oasisbot.send("images/project.jpg")
+    await oasisbot.send("CLEARING")
+    await oasisbot.send("images/project.jpg")
+    await oasisbot.send("CLEARING")
+    await oasisbot.send("images/project.jpg")
 
 
 @oasisbot.command()
