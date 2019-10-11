@@ -32,19 +32,19 @@ async def makeMeme(oasisbot, template, text0, text1):
     imgflipPass = parser.get('AUTH', 'imgflipPass')
     memeIds = {'mocking':102156234, 'doesnotsimply':61579, 'leo':5496396}
     meme = f.genMeme(memeIds[template], imgflipUser, imgflipPass, text0, text1)
-    await oasisbot.upload(meme)
+    await oasisbot.send(meme)
     #genMeme(template_id, username, password, text0, text1, font="impact"):
 
 @oasisbot.command()
 async def clear(oasisbot):
     clearImg = 'images/project.jpg'
-    await oasisbot.send(file=disocr.File(clearImg))
+    await oasisbot.send(file=discord.File(clearImg))
     await oasisbot.send("CLEARING")
-    await oasisbot.send(file=disocr.File(clearImg))
+    await oasisbot.send(file=discord.File(clearImg))
     await oasisbot.send("CLEARING")
-    await oasisbot.send(file=disocr.File(clearImg))
+    await oasisbot.send(file=discord.File(clearImg))
     await oasisbot.send("CLEARING")
-    await oasisbot.send(file=disocr.File(clearImg))
+    await oasisbot.send(file=discord.File(clearImg))
 
 
 @oasisbot.command()
