@@ -25,6 +25,7 @@ async def on_ready(oasisbot):
     print(oasisbot.user.name)
     print(oasisbot.user.id)
     print('------')
+    await oasisbot.send("I'm in!")
 
 @oasisbot.command()
 async def makeMeme(oasisbot, template, text0, text1):
