@@ -15,8 +15,6 @@ pipeline {
                 container('jnlp') {
                     script {
                         sh "curl -O https://s3.us-east-2.amazonaws.com/artifacts.trend-demolab.com/configs/config.cfg"
-                        sh "pwd"
-                        sh "cat config.cfg"
                         dockerImage = docker.build(imgName)
                     }
                 }
