@@ -47,7 +47,7 @@ async def makeMeme(oasisbot, template, text0, text1):
 #     await oasisbot.send(file='images/project.jpg')
 
 @oasisbot.command()
-async def clear(oasisbot, amount: 2):
+async def clear(oasisbot, amount: int):
     await oasisbot.purge(limit=amount)
 
 
