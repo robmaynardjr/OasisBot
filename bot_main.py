@@ -36,14 +36,20 @@ async def makeMeme(oasisbot, template, text0, text1):
     await oasisbot.send(meme)
     #genMeme(template_id, username, password, text0, text1, font="impact"):
 
+# @oasisbot.command()
+# async def clear(oasisbot):
+#     await oasisbot.send(file='images/project.jpg')
+#     await oasisbot.send("CLEARING")
+#     await oasisbot.send(file='images/project.jpg')
+#     await oasisbot.send("CLEARING")
+#     await oasisbot.send(file='images/project.jpg')
+#     await oasisbot.send("CLEARING")
+#     await oasisbot.send(file='images/project.jpg')
+
 @oasisbot.command()
-async def clear(oasisbot):
-    await oasisbot.send(file='images/project.jpg')
-    await oasisbot.send("CLEARING")
-    await oasisbot.send(file='images/project.jpg')
-    await oasisbot.send("CLEARING")
-    await oasisbot.send(file='images/project.jpg')
-    await oasisbot.send(file='images/project.jpg')
+async def clear(oasisbot, amount: 2):
+    await oasisbot.purge(limit=amount)
+
 
 
 @oasisbot.command()
