@@ -6,6 +6,8 @@ import codecs
 import subprocess as sp
 import shodan
 import flippy
+import openai
+import os
 import asyncio #probably unnecessary
 
 parser = ConfigParser()
@@ -62,6 +64,18 @@ async def shodansearch(oasisbot, searchTerm):
         hostinfo = api.host(result['ip_str'])
 
         await oasisbot.send("Result %s of 5\nIPinfo: %s\nHostname: %s\nOS: %s\nOpen Ports: %s\n-------------\n" % (i, ipInfo, hostnames, osData, (str(hostinfo['ports']))))
-
-
+        
+@oasisbot.command()
+async def ai(query):
+    openai.api_key = parser.get('openai')
+    messages = [{"role": "system", "content": "computer"}]
+    messages.append({"role": "user", "content": query})
+    answers = openai.ChatCompletion.create (
+        model = "gpt-3.5-turbo",
+        temperature = 1
+        max_tokens = 4096
+        messages = messages
+    )
+    await oasisbot.send(answers)
+    
 oasisbot.run(token)
